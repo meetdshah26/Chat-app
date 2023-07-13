@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <title>Chat app</title>
+     <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body class="chat" style="background-color:rgb(223, 222, 246)">
+     <div class="chat__main">
+          <ol id="messages" class="chat__messages"></ol>
+     </div>
+
+     <div class="chat__sidebar col-xs-2">
+          <h3 class="label-info text-center"><i class="fas fa-smile"></i>   PEOPLE</h3>
+          <h4 id="users" class="text-left"></h4>
+     </div>
+
+     <div class="chat__footer col-xs-2">
+          <form id="message-form">
+               <div>                    
+                    <input type="text" name="message"   placeholder="Enter Message" required>                   
+                    <!-- <input type="file" name="fileUpload" id="msg" class="form-control " placeholder="Drop File"> -->
+               </div>
+               <div>
+                    <button type="submit" id="submit-btn" class="btn btn-success">   SEND</button>
+                    <button type="submit" id="submit-location" class="btn btn-warning">SEND-LOCATION</button>
+               </div>
+          </form>
+     </div>
+     
+     <script id="message-template" type="text/template">
+         <li class="message">
+          <div class="message__title">
+               <h4>{{from}}</h4>
+               <span>{{createdAt}}</span>
+          </div>
+          <div class="message__body">
+               <p>{{text}}</p>
+          </div>
+         </li>
+     </script>
+     
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.4/qs.min.js" integrity="sha256-ijqLssetA1NMNjZ+w1zaUafQQLm4IW5OoM8O+4tatME=" crossorigin="anonymous">
+     </script>
+     <script src="/socket.io/socket.io.js"></script>
+     <script type="text/javascript" src="/js/chat.js"></script>
+     <script type="text/javascript" src="/js/libs/moment.js"></script>
+     <script type="text/javascript" src="/js/libs/mustache.js"></script>
+</body>
+
+</html>
